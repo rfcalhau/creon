@@ -20,14 +20,62 @@
                          <http://purl.org/dc/terms/bibliographicCitation> "R. F. Calhau, J. P. A. Almeida,  G. Guizzardi, \\\"Capability Reference Ontology (Creon)\\\", 2024, http://purl.org/creon"^^xsd:anyURI ,
                                                                           "https://creativecommons.org/licenses/by/4.0/legalcode"^^xsd:anyURI ;
                          <http://purl.org/dc/terms/created> "2024-12-07"^^xsd:date ;
+                         <http://purl.org/dc/terms/description> "An ontology to describe competences and human capabilities"@en ;
+                         <http://purl.org/dc/terms/issued> "2023-05-08"^^xsd:date ;
+                         <http://purl.org/dc/terms/license> "<https://creativecommons.org/licenses/by/4.0/legalcode>"@en ;
                          <http://purl.org/dc/terms/modified> "2024-12-11"^^xsd:date ;
+                         <http://purl.org/dc/terms/publisher> "<https://www.utwente.nl/eemcs/scs/>"@en ;
                          vann:preferredNamespacePrefix "creon" ;
                          vann:preferredNamespaceUri "http://purl.com/creon"^^xsd:anyURI ;
+                         rdfs:comment """Creon is a well-founded capability reference ontology that accounts for capability-related elements and is grounded in system science, emergence explanations, and disposition theories. The ontology aims to enhance the modeling of the emergent capabilities and capability relationships of socio-technical systems. By leveraging concepts from the Unified Foundational Ontology (UFO), Creon supports a comprehensive representation of capabilities. 
+
+
+For background information on the reference ontology, see: 
+
+1. CALHAU, Rodrigo F. et al. Modeling competences in enterprise architecture: from knowledge, skills, and attitudes to organizational capabilities. Software and Systems Modeling, p. 1-40, 2024.
+2. CALHAU, Rodrigo F.; ALMEIDA, João Paulo A.; GUIZZARDI, Giancarlo. Ontological Analysis of Advanced Capability Modeling in ArchiMate: A First Step Towards Language Revision.
+3. GUIZZARDI, Giancarlo. Ontological foundations for structural conceptual models. 2005.
+
+Cite this work as: 
+R. F. Calhau, J. P. A. Almeida, G. Guizzardi, \\\\\\\"Creon: A Capability Reference Ontology\\\\\\\", 2024, http://purl.org/creon
+
+This work is distributed under Creative Commons Attribution License CC BY 4.0 <https://creativecommons.org/licenses/by/4.0/legalcode>.
+
+
+For the source repository, see: <https://github.com/cre-on/ontology>"""@en ;
                          owl:versionInfo "1.0.0" .
 
 #################################################################
 #    Annotation properties
 #################################################################
+
+###  http://purl.org/dc/terms/description
+<http://purl.org/dc/terms/description> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/issued
+<http://purl.org/dc/terms/issued> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/publisher
+<http://purl.org/dc/terms/publisher> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/vocommons/voaf#domain
+voaf:domain rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/vocommons/voaf#label
+voaf:label rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/vocommons/voaf#range
+voaf:range rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/vocommons/voaf#subClassOf
+voaf:subClassOf rdf:type owl:AnnotationProperty .
+
 
 ###  http://www.w3.org/2002/07/owl#minQualifiedCardinality
 owl:minQualifiedCardinality rdf:type owl:AnnotationProperty .
@@ -41,431 +89,342 @@ owl:qualifiedCardinality rdf:type owl:AnnotationProperty .
 #    Object Properties
 #################################################################
 
-###  http://purl.org/creon#baseOf
+###  http://example.com#baseOf
 :baseOf rdf:type owl:ObjectProperty ;
-        rdfs:domain :ObjectQuality ;
-        rdfs:range :Capability ;
-        rdfs:label "base of"@en .
+        voaf:domain :ObjectQuality ;
+        voaf:label "base of"@en ;
+        voaf:range :Capability .
 
 
-###  http://purl.org/creon#caracterization
+###  http://example.com#caracterization
 :caracterization rdf:type owl:ObjectProperty ;
-                 rdfs:domain :CapabilityType ;
-                 rdfs:range :ObjectType ;
-                 rdfs:label "caracterization"@en .
+                 voaf:domain :CapabilityType ;
+                 voaf:label "caracterization"@en ;
+                 voaf:range :ObjectType .
 
 
-###  http://purl.org/creon#characterization
+###  http://example.com#characterization
 :characterization rdf:type owl:ObjectProperty ;
-                  rdfs:domain :CapabilityBoundRole ;
-                  rdfs:range :DispositionType ;
-                  rdfs:label "characterization"@en .
+                  voaf:domain :CapabilityBoundRole ;
+                  voaf:label "characterization"@en ;
+                  voaf:range :DispositionType .
 
 
-###  http://purl.org/creon#composition
+###  http://example.com#composition
 :composition rdf:type owl:ObjectProperty ;
-             rdfs:domain :CapabilityType ;
-             rdfs:range :CapabilityType ;
-             rdfs:label "composition"@en .
+             voaf:domain :CapabilityType ;
+             voaf:label "composition"@en ;
+             voaf:range :CapabilityType .
 
 
-###  http://purl.org/creon#correspondsTo
+###  http://example.com#correspondsTo
 :correspondsTo rdf:type owl:ObjectProperty ;
-               rdfs:domain :CapabilityQuality ;
-               rdfs:range :CapabilityLevel ;
-               rdfs:label "corresponds to"@en .
+               voaf:domain :CapabilityQuality ;
+               voaf:label "corresponds to"@en ;
+               voaf:range :CapabilityLevel .
 
 
-###  http://purl.org/creon#definedBy
+###  http://example.com#definedBy
 :definedBy rdf:type owl:ObjectProperty ;
-           rdfs:domain :CapabilityBoundRole ;
-           rdfs:range :CapabilityType ;
-           rdfs:label "defined by"@en .
+           voaf:domain :CapabilityBoundRole ;
+           voaf:label "defined by"@en ;
+           voaf:range :CapabilityType .
 
 
-###  http://purl.org/creon#emergence
+###  http://example.com#emergence
 :emergence rdf:type owl:ObjectProperty ;
-           rdfs:domain :CapabilityType ;
-           rdfs:range :CapabilityType ;
-           rdfs:label "emergence"@en .
+           voaf:domain :CapabilityType ;
+           voaf:label "emergence"@en ;
+           voaf:range :CapabilityType .
 
 
-###  http://purl.org/creon#impacts
+###  http://example.com#impacts
 :impacts rdf:type owl:ObjectProperty ;
-         rdfs:domain :CapabilityManifestation ;
-         rdfs:range :CapabilitySubject ;
-         rdfs:label "impacts"@en .
+         voaf:domain :CapabilityManifestation ;
+         voaf:label "impacts"@en ;
+         voaf:range :CapabilitySubject .
 
 
-###  http://purl.org/creon#impacts_1
+###  http://example.com#impacts_1
 :impacts_1 rdf:type owl:ObjectProperty ;
-           rdfs:domain :CapabilityOutcome ;
-           rdfs:range :CapabilitySubject ;
-           rdfs:label "impacts"@en .
+           voaf:domain :CapabilityOutcome ;
+           voaf:label "impacts"@en ;
+           voaf:range :CapabilitySubject .
 
 
-###  http://purl.org/creon#interaction
+###  http://example.com#interaction
 :interaction rdf:type owl:ObjectProperty ;
-             rdfs:domain :CapabilityType ;
-             rdfs:range :CapabilityType ;
-             rdfs:label "interaction"@en .
+             voaf:domain :CapabilityType ;
+             voaf:label "interaction"@en ;
+             voaf:range :CapabilityType .
 
 
-###  http://purl.org/creon#moreComplexThan
+###  http://example.com#moreComplexThan
 :moreComplexThan rdf:type owl:ObjectProperty ;
-                 rdfs:domain :CapabilityType ;
-                 rdfs:range :CapabilityType ;
-                 rdfs:label "more complex than"@en .
+                 voaf:domain :CapabilityType ;
+                 voaf:label "more complex than"@en ;
+                 voaf:range :CapabilityType .
 
 
-###  http://purl.org/creon#specializes
+###  http://example.com#specializes
 :specializes rdf:type owl:ObjectProperty ;
-             rdfs:domain :ObjectType ;
-             rdfs:range :CapabilityBoundRole ;
-             rdfs:label "specializes"@en .
+             voaf:domain :ObjectType ;
+             voaf:label "specializes"@en ;
+             voaf:range :CapabilityBoundRole .
 
 
-###  http://purl.org/creon#specializes_1
+###  http://example.com#specializes_1
 :specializes_1 rdf:type owl:ObjectProperty ;
-               rdfs:domain :CapabilityBoundRole ;
-               rdfs:range :CapabilityBoundRole ;
-               rdfs:label "specializes"@en .
+               voaf:domain :CapabilityBoundRole ;
+               voaf:label "specializes"@en ;
+               voaf:range :CapabilityBoundRole .
 
 
-###  http://purl.org/creon#standsIn_2
+###  http://example.com#standsIn_2
 :standsIn_2 rdf:type owl:ObjectProperty ;
-            rdfs:domain :CapabilityOutputAspect ;
-            rdfs:range :CapabilityOutcome ;
-            rdfs:label "stands in"@en .
+            voaf:domain :CapabilityOutputAspect ;
+            voaf:label "stands in"@en ;
+            voaf:range :CapabilityOutcome .
 
 
-###  http://purl.org/creon#supportedBy
-:supportedBy rdf:type owl:ObjectProperty ;
-             rdfs:domain :CapableObject ;
-             rdfs:range :EnablerObject .
+###  http://example.com#supportedBy
+:supportedBy rdf:type owl:ObjectProperty .
 
 
-###  http://purl.org/creon#undergoesInteraction
+###  http://example.com#undergoesInteraction
 :undergoesInteraction rdf:type owl:ObjectProperty ;
-                      rdfs:domain :CapabilityBoundRole ;
-                      rdfs:range :CapabilityBoundRole ;
-                      rdfs:label "undergoes interaction"@en .
+                      voaf:domain :CapabilityBoundRole ;
+                      voaf:label "undergoes interaction"@en ;
+                      voaf:range :CapabilityBoundRole .
+
+
+###  http://purl.org/nemo/gufo#broughtAbout
+gufo:broughtAbout owl:inverseOf [ owl:inverseOf gufo:broughtAbout
+                                ] .
+
+
+###  http://purl.org/nemo/gufo#contributedToTrigger
+gufo:contributedToTrigger owl:inverseOf [ owl:inverseOf gufo:contributedToTrigger
+                                        ] .
+
+
+###  http://purl.org/nemo/gufo#inheresIn
+gufo:inheresIn owl:inverseOf [ owl:inverseOf gufo:inheresIn
+                             ] .
+
+
+###  http://purl.org/nemo/gufo#manifestedIn
+gufo:manifestedIn owl:inverseOf [ owl:inverseOf gufo:manifestedIn
+                                ] .
+
+
+###  http://purl.org/nemo/gufo#participatedIn
+gufo:participatedIn owl:inverseOf [ owl:inverseOf gufo:participatedIn
+                                  ] .
 
 
 #################################################################
 #    Classes
 #################################################################
 
-###  http://purl.org/creon#Capability
-:Capability rdf:type owl:Class ;
-            rdfs:subClassOf :Disposition ,
-                            [ rdf:type owl:Restriction ;
-                              owl:onProperty gufo:inheresIn ;
-                              owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                              owl:onClass :CapabilityQuality
-                            ] ,
-                            [ rdf:type owl:Restriction ;
-                              owl:onProperty gufo:inheresIn ;
-                              owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                              owl:onClass :CapableObject
-                            ] ,
-                            [ rdf:type owl:Restriction ;
-                              owl:onProperty [ owl:inverseOf gufo:inheresIn
-                                             ] ;
-                              owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                              owl:onClass :CapabilityLevel
-                            ] .
+###  http://example.com#Capability
+:Capability rdf:type owl:Class .
 
 
-###  http://purl.org/creon#CapabilityBoundRole
-:CapabilityBoundRole rdf:type owl:Class ;
-                     rdfs:subClassOf :ObjectType ,
-                                     gufo:Role .
+###  http://example.com#CapabilityBoundRole
+:CapabilityBoundRole rdf:type owl:Class .
 
 
-###  http://purl.org/creon#CapabilityLevel
-:CapabilityLevel rdf:type owl:Class ;
-                 rdfs:subClassOf gufo:Quality ,
-                                 [ rdf:type owl:Restriction ;
-                                   owl:onProperty gufo:inheresIn ;
-                                   owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                   owl:onClass :Capability
-                                 ] .
+###  http://example.com#CapabilityLevel
+:CapabilityLevel rdf:type owl:Class .
 
 
-###  http://purl.org/creon#CapabilityManifestation
-:CapabilityManifestation rdf:type owl:Class ;
-                         rdfs:subClassOf gufo:Event ,
-                                         [ rdf:type owl:Restriction ;
-                                           owl:onProperty [ owl:inverseOf gufo:manifestedIn
-                                                          ] ;
-                                           owl:someValuesFrom :Capability
-                                         ] ,
-                                         [ rdf:type owl:Restriction ;
-                                           owl:onProperty [ owl:inverseOf gufo:participatedIn
-                                                          ] ;
-                                           owl:someValuesFrom :CapabilityManifestationInput
-                                         ] ,
-                                         [ rdf:type owl:Restriction ;
-                                           owl:onProperty [ owl:inverseOf gufo:participatedIn
-                                                          ] ;
-                                           owl:someValuesFrom :CapableObject
-                                         ] ,
-                                         [ rdf:type owl:Restriction ;
-                                           owl:onProperty [ owl:inverseOf gufo:contributedToTrigger
-                                                          ] ;
-                                           owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                           owl:onClass :CapabilityManifestationContext
-                                         ] ,
-                                         [ rdf:type owl:Restriction ;
-                                           owl:onProperty gufo:broughtAbout ;
-                                           owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                           owl:onClass :CapabilityOutcome
-                                         ] .
+###  http://example.com#CapabilityManifestation
+:CapabilityManifestation rdf:type owl:Class .
 
 
-###  http://purl.org/creon#CapabilityManifestationContext
-:CapabilityManifestationContext rdf:type owl:Class ;
-                                rdfs:subClassOf gufo:Situation .
+###  http://example.com#CapabilityManifestationContext
+:CapabilityManifestationContext rdf:type owl:Class .
 
 
-###  http://purl.org/creon#CapabilityManifestationInput
-:CapabilityManifestationInput rdf:type owl:Class ;
-                              rdfs:subClassOf gufo:FunctionalComplex ,
-                                              [ rdf:type owl:Restriction ;
-                                                owl:onProperty gufo:participatedIn ;
-                                                owl:someValuesFrom :CapabilityManifestation
-                                              ] .
+###  http://example.com#CapabilityManifestationInput
+:CapabilityManifestationInput rdf:type owl:Class .
 
 
-###  http://purl.org/creon#CapabilityManifestationOutput
-:CapabilityManifestationOutput rdf:type owl:Class ;
-                               rdfs:subClassOf gufo:FunctionalComplex ,
-                                               [ rdf:type owl:Restriction ;
-                                                 owl:onProperty [ owl:inverseOf gufo:inheresIn
-                                                                ] ;
-                                                 owl:someValuesFrom :CapabilityOutputAspect
-                                               ] .
+###  http://example.com#CapabilityManifestationOutput
+:CapabilityManifestationOutput rdf:type owl:Class .
 
 
-###  http://purl.org/creon#CapabilityOutcome
-:CapabilityOutcome rdf:type owl:Class ;
-                   rdfs:subClassOf gufo:Situation ,
-                                   [ rdf:type owl:Restriction ;
-                                     owl:onProperty [ owl:inverseOf gufo:broughtAbout
-                                                    ] ;
-                                     owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                     owl:onClass :CapabilityManifestation
-                                   ] .
+###  http://example.com#CapabilityOutcome
+:CapabilityOutcome rdf:type owl:Class .
 
 
-###  http://purl.org/creon#CapabilityOutputAspect
-:CapabilityOutputAspect rdf:type owl:Class ;
-                        rdfs:subClassOf gufo:IntrinsicMode ,
-                                        [ rdf:type owl:Restriction ;
-                                          owl:onProperty gufo:inheresIn ;
-                                          owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                          owl:onClass :CapabilityManifestationOutput
-                                        ] .
+###  http://example.com#CapabilityOutputAspect
+:CapabilityOutputAspect rdf:type owl:Class .
 
 
-###  http://purl.org/creon#CapabilityPhase
-:CapabilityPhase rdf:type owl:Class ;
-                 rdfs:subClassOf :CapabilityType ,
-                                 gufo:Phase .
+###  http://example.com#CapabilityPhase
+:CapabilityPhase rdf:type owl:Class .
 
 
-###  http://purl.org/creon#CapabilityQuality
-:CapabilityQuality rdf:type owl:Class ;
-                   rdfs:subClassOf gufo:Quality ,
-                                   [ rdf:type owl:Restriction ;
-                                     owl:onProperty [ owl:inverseOf gufo:inheresIn
-                                                    ] ;
-                                     owl:someValuesFrom :Capability
-                                   ] .
+###  http://example.com#CapabilityQuality
+:CapabilityQuality rdf:type owl:Class .
 
 
-###  http://purl.org/creon#CapabilitySubject
-:CapabilitySubject rdf:type owl:Class ;
-                   rdfs:subClassOf gufo:FunctionalComplex .
+###  http://example.com#CapabilitySubject
+:CapabilitySubject rdf:type owl:Class .
 
 
-###  http://purl.org/creon#CapabilityType
-:CapabilityType rdf:type owl:Class ;
-                rdfs:subClassOf :DispositionType ,
-                                gufo:Mixin .
+###  http://example.com#CapabilityType
+:CapabilityType rdf:type owl:Class .
 
 
-###  http://purl.org/creon#CapableObject
-:CapableObject rdf:type owl:Class ;
-               rdfs:subClassOf gufo:FunctionalComplex ,
-                               [ rdf:type owl:Restriction ;
-                                 owl:onProperty [ owl:inverseOf gufo:inheresIn
-                                                ] ;
-                                 owl:someValuesFrom :Capability
-                               ] ,
-                               [ rdf:type owl:Restriction ;
-                                 owl:onProperty [ owl:inverseOf gufo:inheresIn
-                                                ] ;
-                                 owl:someValuesFrom :ObjectQuality
-                               ] .
+###  http://example.com#CapableObject
+:CapableObject rdf:type owl:Class .
 
 
-###  http://purl.org/creon#ComplexCapability
-:ComplexCapability rdf:type owl:Class ;
-                   rdfs:subClassOf :Capability .
+###  http://example.com#ComplexCapability
+:ComplexCapability rdf:type owl:Class .
 
 
-###  http://purl.org/creon#Disposition
-:Disposition rdf:type owl:Class ;
-             rdfs:subClassOf gufo:IntrinsicMode .
+###  http://example.com#Disposition
+:Disposition rdf:type owl:Class .
 
 
-###  http://purl.org/creon#DispositionType
-:DispositionType rdf:type owl:Class ;
-                 rdfs:subClassOf gufo:ConcreteIndividualType .
+###  http://example.com#DispositionType
+:DispositionType rdf:type owl:Class .
 
 
-###  http://purl.org/creon#EmergentCapability
-:EmergentCapability rdf:type owl:Class ;
-                    rdfs:subClassOf :Capability .
+###  http://example.com#EmergentCapability
+:EmergentCapability rdf:type owl:Class .
 
 
-###  http://purl.org/creon#EnablerObject
-:EnablerObject rdf:type owl:Class ;
-               rdfs:subClassOf gufo:FunctionalComplex .
+###  http://example.com#EnablerObject
+:EnablerObject rdf:type owl:Class .
 
 
-###  http://purl.org/creon#InteractiveCapability
-:InteractiveCapability rdf:type owl:Class ;
-                       rdfs:subClassOf :Capability .
+###  http://example.com#InteractiveCapability
+:InteractiveCapability rdf:type owl:Class .
 
 
-###  http://purl.org/creon#ObjectQuality
-:ObjectQuality rdf:type owl:Class ;
-               rdfs:subClassOf gufo:IntrinsicMode ,
-                               [ rdf:type owl:Restriction ;
-                                 owl:onProperty gufo:inheresIn ;
-                                 owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                 owl:onClass :CapableObject
-                               ] .
+###  http://example.com#ObjectQuality
+:ObjectQuality rdf:type owl:Class .
 
 
-###  http://purl.org/creon#ObjectType
-:ObjectType rdf:type owl:Class ;
-            rdfs:subClassOf gufo:ConcreteIndividualType .
+###  http://example.com#ObjectType
+:ObjectType rdf:type owl:Class .
 
 
 #################################################################
 #    Individuals
 #################################################################
 
-###  http://purl.org/creon#Capability
+###  http://example.com#Capability
 :Capability rdf:type owl:NamedIndividual ,
                      gufo:Mixin .
 
 
-###  http://purl.org/creon#CapabilityBoundRole
+###  http://example.com#CapabilityBoundRole
 :CapabilityBoundRole rdf:type owl:NamedIndividual .
 
 
-###  http://purl.org/creon#CapabilityLevel
+###  http://example.com#CapabilityLevel
 :CapabilityLevel rdf:type owl:NamedIndividual ,
                           gufo:Kind .
 
 
-###  http://purl.org/creon#CapabilityManifestation
+###  http://example.com#CapabilityManifestation
 :CapabilityManifestation rdf:type owl:NamedIndividual ,
                                   gufo:EventType .
 
 
-###  http://purl.org/creon#CapabilityManifestationContext
+###  http://example.com#CapabilityManifestationContext
 :CapabilityManifestationContext rdf:type owl:NamedIndividual ,
                                          gufo:SituationType .
 
 
-###  http://purl.org/creon#CapabilityManifestationInput
+###  http://example.com#CapabilityManifestationInput
 :CapabilityManifestationInput rdf:type owl:NamedIndividual ,
                                        gufo:Role .
 
 
-###  http://purl.org/creon#CapabilityManifestationOutput
+###  http://example.com#CapabilityManifestationOutput
 :CapabilityManifestationOutput rdf:type owl:NamedIndividual ,
                                         gufo:Role .
 
 
-###  http://purl.org/creon#CapabilityOutcome
+###  http://example.com#CapabilityOutcome
 :CapabilityOutcome rdf:type owl:NamedIndividual ,
                             gufo:SituationType .
 
 
-###  http://purl.org/creon#CapabilityOutputAspect
+###  http://example.com#CapabilityOutputAspect
 :CapabilityOutputAspect rdf:type owl:NamedIndividual ,
                                  gufo:Category .
 
 
-###  http://purl.org/creon#CapabilityPhase
+###  http://example.com#CapabilityPhase
 :CapabilityPhase rdf:type owl:NamedIndividual .
 
 
-###  http://purl.org/creon#CapabilityQuality
+###  http://example.com#CapabilityQuality
 :CapabilityQuality rdf:type owl:NamedIndividual ,
                             gufo:Kind .
 
 
-###  http://purl.org/creon#CapabilitySubject
+###  http://example.com#CapabilitySubject
 :CapabilitySubject rdf:type owl:NamedIndividual ,
                             gufo:RoleMixin .
 
 
-###  http://purl.org/creon#CapabilityType
+###  http://example.com#CapabilityType
 :CapabilityType rdf:type owl:NamedIndividual .
 
 
-###  http://purl.org/creon#CapableObject
+###  http://example.com#CapableObject
 :CapableObject rdf:type owl:NamedIndividual ,
                         gufo:Mixin .
 
 
-###  http://purl.org/creon#ComplexCapability
+###  http://example.com#ComplexCapability
 :ComplexCapability rdf:type owl:NamedIndividual ,
                             gufo:Category .
 
 
-###  http://purl.org/creon#Disposition
+###  http://example.com#Disposition
 :Disposition rdf:type owl:NamedIndividual ,
                       gufo:Category .
 
 
-###  http://purl.org/creon#DispositionType
+###  http://example.com#DispositionType
 :DispositionType rdf:type owl:NamedIndividual .
 
 
-###  http://purl.org/creon#EmergentCapability
+###  http://example.com#EmergentCapability
 :EmergentCapability rdf:type owl:NamedIndividual ,
                              gufo:Category .
 
 
-###  http://purl.org/creon#EnablerObject
+###  http://example.com#EnablerObject
 :EnablerObject rdf:type owl:NamedIndividual ,
                         gufo:RoleMixin .
 
 
-###  http://purl.org/creon#InteractiveCapability
+###  http://example.com#InteractiveCapability
 :InteractiveCapability rdf:type owl:NamedIndividual ,
                                 gufo:RoleMixin .
 
 
-###  http://purl.org/creon#ObjectQuality
+###  http://example.com#ObjectQuality
 :ObjectQuality rdf:type owl:NamedIndividual ,
                         gufo:Category .
 
 
-###  http://purl.org/creon#ObjectType
+###  http://example.com#ObjectType
 :ObjectType rdf:type owl:NamedIndividual .
 
 
-###  http://purl.org/creon#supportedBy
+###  http://example.com#supportedBy
 :supportedBy rdf:type owl:NamedIndividual ,
                       gufo:MaterialRelationshipType .
 
@@ -480,73 +439,126 @@ owl:qualifiedCardinality rdf:type owl:AnnotationProperty .
 #    Annotations
 #################################################################
 
-:Capability rdfs:label "Capability"@en .
+:Capability voaf:subClassOf [ owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger
+                             ] ,
+                             [ owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger
+                             ] ;
+             voaf:label "Capability"@en ;
+             voaf:subClassOf :Disposition ,
+                             [ owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
+                             ] .
 
 
-:CapabilityBoundRole rdfs:label "CapabilityBoundRole"@en .
+:CapabilityBoundRole voaf:subClassOf :ObjectType ;
+                     voaf:label "CapabilityBoundRole"@en ;
+                     voaf:subClassOf gufo:Role .
 
 
-:CapabilityLevel rdfs:label "CapabilityLevel"@en .
+:CapabilityLevel voaf:subClassOf [ owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger
+                                 ] ,
+                                 gufo:Quality ;
+                 voaf:label "CapabilityLevel"@en .
 
 
-:CapabilityManifestation rdfs:label "CapabilityManifestation"@en .
+:CapabilityManifestation voaf:subClassOf [ owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
+                                         ] ;
+                         voaf:label "CapabilityManifestation"@en ;
+                         voaf:subClassOf [ ] ,
+[ ] ,
+[ ] ,
+[ owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger
+] ,
+gufo:Event .
 
 
-:CapabilityManifestationContext rdfs:label "CapabilityManifestationContext"@en .
+:CapabilityManifestationContext voaf:label "CapabilityManifestationContext"@en ;
+                                voaf:subClassOf gufo:Situation .
 
 
-:CapabilityManifestationInput rdfs:label "CapabilityManifestationInput"@en .
+:CapabilityManifestationInput voaf:subClassOf gufo:FunctionalComplex ;
+                              voaf:label "CapabilityManifestationInput"@en ;
+                              voaf:subClassOf [ ] .
 
 
-:CapabilityManifestationOutput rdfs:label "CapabilityManifestationOutput"@en .
+:CapabilityManifestationOutput voaf:subClassOf [ ] ;
+voaf:label "CapabilityManifestationOutput"@en ;
+voaf:subClassOf gufo:FunctionalComplex .
 
 
-:CapabilityOutcome rdfs:label "CapabilityOutcome"@en .
+:CapabilityOutcome voaf:subClassOf gufo:Situation ;
+                   voaf:label "CapabilityOutcome"@en ;
+                   voaf:subClassOf [ owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
+                                   ] .
 
 
-:CapabilityOutputAspect rdfs:label "CapabilityOutputAspect"@en .
+:CapabilityOutputAspect voaf:label "CapabilityOutputAspect"@en ;
+                        voaf:subClassOf [ owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger
+                                        ] ,
+                                        gufo:IntrinsicMode .
 
 
-:CapabilityPhase rdfs:label "CapabilityPhase"@en .
+:CapabilityPhase voaf:label "CapabilityPhase"@en ;
+                 voaf:subClassOf gufo:Phase ,
+                                 :CapabilityType .
 
 
-:CapabilityQuality rdfs:label "CapabilityQuality"@en .
+:CapabilityQuality voaf:subClassOf gufo:Quality ,
+                                   [ ] ;
+voaf:label "CapabilityQuality"@en .
 
 
-:CapabilitySubject rdfs:label "CapabilitySubject"@en .
+:CapabilitySubject voaf:subClassOf gufo:FunctionalComplex ;
+                   voaf:label "CapabilitySubject"@en .
 
 
-:CapabilityType rdfs:label "CapabilityType"@en .
+:CapabilityType voaf:label "CapabilityType"@en ;
+                voaf:subClassOf :DispositionType ,
+                                gufo:Mixin .
 
 
-:CapableObject rdfs:label "CapableObject"@en .
+:CapableObject voaf:subClassOf [ ] ,
+gufo:FunctionalComplex ,
+[ ] ;
+voaf:label "CapableObject"@en .
 
 
-:ComplexCapability rdfs:label "ComplexCapability"@en .
+:ComplexCapability voaf:label "ComplexCapability"@en ;
+                   voaf:subClassOf :Capability .
 
 
-:Disposition rdfs:label "Disposition"@en .
+:Disposition voaf:subClassOf gufo:IntrinsicMode ;
+             voaf:label "Disposition"@en .
 
 
-:DispositionType rdfs:label "DispositionType"@en .
+:DispositionType voaf:label "DispositionType"@en ;
+                 voaf:subClassOf gufo:ConcreteIndividualType .
 
 
-:EmergentCapability rdfs:label "EmergentCapability"@en .
+:EmergentCapability voaf:label "EmergentCapability"@en ;
+                    voaf:subClassOf :Capability .
 
 
-:EnablerObject rdfs:label "EnablerObject"@en .
+:EnablerObject voaf:label "EnablerObject"@en ;
+               voaf:subClassOf gufo:FunctionalComplex .
 
 
-:InteractiveCapability rdfs:label "InteractiveCapability"@en .
+:InteractiveCapability voaf:label "InteractiveCapability"@en ;
+                       voaf:subClassOf :Capability .
 
 
-:ObjectQuality rdfs:label "ObjectQuality"@en .
+:ObjectQuality voaf:label "ObjectQuality"@en ;
+               voaf:subClassOf [ owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger
+                               ] ,
+                               gufo:IntrinsicMode .
 
 
-:ObjectType rdfs:label "ObjectType"@en .
+:ObjectType voaf:subClassOf gufo:ConcreteIndividualType ;
+            voaf:label "ObjectType"@en .
 
 
-:supportedBy rdfs:label "supported by"@en .
+:supportedBy voaf:domain :CapableObject ;
+             voaf:range :EnablerObject ;
+             voaf:label "supported by"@en .
 
 
 ###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi
