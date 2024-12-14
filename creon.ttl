@@ -21,10 +21,13 @@
                          <http://purl.org/dc/terms/bibliographicCitation> """R. F. Calhau, J. P. A. Almeida,  G. Guizzardi, \"Creon: A Capability Reference Ontology (Creon)\", 2024, http://purl.org/creon
                                                                           \"https://creativecommons.org/licenses/by/4.0/legalcode"""@en ;
                          <http://purl.org/dc/terms/created> "2024-12-07"@en ;
+                         <http://purl.org/dc/terms/issued> "2014-12-11"^^xsd:date ;
                          <http://purl.org/dc/terms/license> "https://creativecommons.org/licenses/by/4.0/legalcode"@en ;
                          <http://purl.org/dc/terms/modified> "2024-12-11"@en ;
+                         <http://purl.org/dc/terms/publisher> "<https://www.utwente.nl/eemcs/scs/>"^^xsd:anyURI ;
                          <http://purl.org/vocab/vann/preferredNamespacePrefix> "creon"@en ;
                          <http://purl.org/vocab/vann/preferredNamespaceUri> "http://purl.com/creon"@en ;
+                         rdf:type "http://purl.org/vocommons/voaf#Vocabulary"^^xsd:anyURI ;
                          rdfs:comment """Creon is a well-founded competence reference ontology that accounts for capability-related concepts such as capable objects, capability level, enabler resources, capability subject, capability context, capability manifestation, outcomes and outputs. Creon is grounded in system science, emergence explanations, and disposition theories to explain how capabilities interact and emerge. The ontology aims to enhance the modeling of the emergent capabilities and capability relationships of socio-technical systems. By leveraging concepts from the Unified Foundational Ontology (UFO), Creon supports a comprehensive representation of capabilities.
 
 For background information on the reference ontology, see: 
@@ -49,6 +52,8 @@ This work is distributed under Creative Commons Attribution License CC BY 4.0 <h
 
 
 For the source repository, see: <https://github.com/cre-on/ontology"""@en ;
+                         rdfs:seeAlso "http://purl.org/core"^^xsd:anyURI ;
+                         owl:priorVersion "0.0.1" ;
                          owl:versionInfo "1.0.0"@en .
 
 #################################################################
@@ -61,6 +66,18 @@ For the source repository, see: <https://github.com/cre-on/ontology"""@en ;
 
 ###  http://purl.org/dc/elements/1.1/publisher
 <http://purl.org/dc/elements/1.1/publisher> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/issued
+<http://purl.org/dc/terms/issued> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/publisher
+<http://purl.org/dc/terms/publisher> rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/1999/02/22-rdf-syntax-ns#type
+rdf:type rdf:type owl:AnnotationProperty .
 
 
 ###  http://www.w3.org/2002/07/owl#minQualifiedCardinality
