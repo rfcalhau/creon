@@ -1,15 +1,16 @@
-@prefix : <http://example.com#> .
+@prefix : <http://purl.org/creon#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix gufo: <http://purl.org/nemo/gufo#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@base <http://purl.org/creon> .
+@base <http://purl.org/creon#> .
 
 <http://purl.org/creon> rdf:type owl:Ontology ;
                          owl:versionIRI <http://purl.org/creon/1.0.0> ;
-                         owl:imports gufo: ,
+                         owl:imports <http://purl.org/disc-o/1.0.0> ,
+                                     gufo: ,
                                      <http://purl.org/nemo/gufo#/1.0.0> ;
                          <http://purl.org/dc/elements/1.1/creator> """<https://orcid.org/0009-0006-6051-2165>,
 <https://orcid.org/0000-0002-9819-3781>,
@@ -21,7 +22,7 @@
                          <http://purl.org/dc/terms/bibliographicCitation> """R. F. Calhau, J. P. A. Almeida,  G. Guizzardi, \"Creon: A Capability Reference Ontology (Creon)\", 2024, http://purl.org/creon
                                                                           \"https://creativecommons.org/licenses/by/4.0/legalcode"""@en ;
                          <http://purl.org/dc/terms/created> "2024-12-07"@en ;
-                         <http://purl.org/dc/terms/issued> "2014-12-11"^^xsd:date ;
+                         <http://purl.org/dc/terms/issued> "2044-12-11" ;
                          <http://purl.org/dc/terms/license> "https://creativecommons.org/licenses/by/4.0/legalcode"@en ;
                          <http://purl.org/dc/terms/modified> "2024-12-11"@en ;
                          <http://purl.org/dc/terms/publisher> "<https://www.utwente.nl/eemcs/scs/>"^^xsd:anyURI ;
@@ -98,79 +99,56 @@ owl:qualifiedCardinality rdf:type owl:AnnotationProperty .
 
 ###  http://example.com#characterization
 :characterization rdf:type owl:ObjectProperty ;
-                  rdfs:domain :CapabilityBoundRole ;
-                  rdfs:range :DispositionType ;
-                  rdfs:label "characterization"@en .
-
-
-###  http://example.com#characterization_1
-:characterization_1 rdf:type owl:ObjectProperty ;
-                    rdfs:domain :CapabilityType ;
-                    rdfs:range :ObjectType ;
-                    rdfs:label "characterization"@en .
+                  rdfs:subPropertyOf <http://purl.org/disc-o#characterization> ;
+                  rdfs:domain :CapabilityType ;
+                  rdfs:range :CapabilityBoundRole ;
+                  rdfs:label "characterizationCapabilityType"@en .
 
 
 ###  http://example.com#composition
 :composition rdf:type owl:ObjectProperty ;
+             rdfs:subPropertyOf <http://purl.org/disc-o#composition> ;
              rdfs:domain :CapabilityType ;
              rdfs:range :CapabilityType ;
-             rdfs:label "composition"@en .
+             rdfs:label "compositionCapabilityType"@en .
 
 
 ###  http://example.com#correspondsTo
 :correspondsTo rdf:type owl:ObjectProperty ;
                rdfs:domain :CapabilityQuality ;
                rdfs:range :CapabilityLevel ;
-               rdfs:label "corresponds to"@en .
-
-
-###  http://example.com#definedBy
-:definedBy rdf:type owl:ObjectProperty ;
-           rdfs:domain :CapabilityBoundRole ;
-           rdfs:range :CapabilityType ;
-           rdfs:label "defined by"@en .
+               rdfs:label "correspondsTo"@en .
 
 
 ###  http://example.com#emergence
 :emergence rdf:type owl:ObjectProperty ;
+           rdfs:subPropertyOf <http://purl.org/disc-o#emergence> ;
            rdfs:domain :CapabilityType ;
            rdfs:range :CapabilityType ;
-           rdfs:label "emergence"@en .
+           rdfs:label "emergenceCapabilityType"@en .
 
 
 ###  http://example.com#impacts
 :impacts rdf:type owl:ObjectProperty ;
+         rdfs:subPropertyOf :impacts ;
          rdfs:domain :CapabilityManifestation ;
          rdfs:range :CapabilitySubject ;
-         rdfs:label "impacts"@en .
+         rdfs:label "manifestationImpacts"@en .
 
 
 ###  http://example.com#impacts_1
 :impacts_1 rdf:type owl:ObjectProperty ;
+           rdfs:subPropertyOf :impacts ;
            rdfs:domain :CapabilityOutcome ;
            rdfs:range :CapabilitySubject ;
-           rdfs:label "impacts"@en .
-
-
-###  http://example.com#interaction
-:interaction rdf:type owl:ObjectProperty ;
-             rdfs:domain :CapabilityType ;
-             rdfs:range :CapabilityType ;
-             rdfs:label "interaction"@en .
-
-
-###  http://example.com#manifestation
-:manifestation rdf:type owl:ObjectProperty ;
-               rdfs:domain :DispositionType ;
-               rdfs:range gufo:EventType ;
-               rdfs:label "manifestation"@en .
+           rdfs:label "outcomeImpacts"@en .
 
 
 ###  http://example.com#manifestation_1
 :manifestation_1 rdf:type owl:ObjectProperty ;
-                 rdfs:subPropertyOf :manifestation ;
-                 rdfs:domain :CapabilityType ;
-                 rdfs:range gufo:EventType ;
+                 rdfs:subPropertyOf <http://purl.org/disc-o#manifestation> ;
+                 rdfs:domain gufo:EventType ;
+                 rdfs:range :CapabilityType ;
                  rdfs:label "manifestationCapability"@en .
 
 
@@ -178,21 +156,7 @@ owl:qualifiedCardinality rdf:type owl:AnnotationProperty .
 :moreComplexThan rdf:type owl:ObjectProperty ;
                  rdfs:domain :CapabilityType ;
                  rdfs:range :CapabilityType ;
-                 rdfs:label "more complex than"@en .
-
-
-###  http://example.com#participation
-:participation rdf:type owl:ObjectProperty ;
-               rdfs:domain :ObjectType ;
-               rdfs:range gufo:EventType ;
-               rdfs:label "participation"@en .
-
-
-###  http://example.com#specializes
-:specializes rdf:type owl:ObjectProperty ;
-             rdfs:domain :ObjectType ;
-             rdfs:range :CapabilityBoundRole ;
-             rdfs:label "specializes"@en .
+                 rdfs:label "moreComplexThan"@en .
 
 
 ###  http://example.com#specializes_1
@@ -204,15 +168,23 @@ owl:qualifiedCardinality rdf:type owl:AnnotationProperty .
 
 ###  http://example.com#supportedBy
 :supportedBy rdf:type owl:ObjectProperty ;
+             rdfs:subPropertyOf <http://purl.org/disc-o#interactsWith_1> ;
              rdfs:domain :CapableObject ;
              rdfs:range :EnablerObject .
 
 
 ###  http://example.com#undergoesInteraction
 :undergoesInteraction rdf:type owl:ObjectProperty ;
+                      rdfs:subPropertyOf <http://purl.org/disc-o#interaction_1> ;
                       rdfs:domain :CapabilityBoundRole ;
                       rdfs:range :CapabilityBoundRole ;
-                      rdfs:label "undergoes interaction"@en .
+                      rdfs:label "undergoesInteraction"@en .
+
+
+###  http://purl.org/creon#impacts
+:impacts rdf:type owl:ObjectProperty ;
+         rdfs:domain gufo:Individual ;
+         rdfs:range gufo:Object .
 
 
 #################################################################
@@ -221,7 +193,7 @@ owl:qualifiedCardinality rdf:type owl:AnnotationProperty .
 
 ###  http://example.com#Capability
 :Capability rdf:type owl:Class ;
-            rdfs:subClassOf :Disposition ,
+            rdfs:subClassOf <http://purl.org/disc-o#Disposition> ,
                             [ rdf:type owl:Restriction ;
                               owl:onProperty gufo:inheresIn ;
                               owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
@@ -242,7 +214,7 @@ owl:qualifiedCardinality rdf:type owl:AnnotationProperty .
 
 ###  http://example.com#CapabilityBoundRole
 :CapabilityBoundRole rdf:type owl:Class ;
-                     rdfs:subClassOf :ObjectType ,
+                     rdfs:subClassOf <http://purl.org/disc-o#ObjectType> ,
                                      gufo:Role .
 
 
@@ -258,7 +230,7 @@ owl:qualifiedCardinality rdf:type owl:AnnotationProperty .
 
 ###  http://example.com#CapabilityManifestation
 :CapabilityManifestation rdf:type owl:Class ;
-                         rdfs:subClassOf gufo:Event ,
+                         rdfs:subClassOf <http://purl.org/disc-o#DispositionManifestation> ,
                                          [ rdf:type owl:Restriction ;
                                            owl:onProperty [ owl:inverseOf gufo:manifestedIn
                                                           ] ;
@@ -289,7 +261,7 @@ owl:qualifiedCardinality rdf:type owl:AnnotationProperty .
 
 ###  http://example.com#CapabilityManifestationContext
 :CapabilityManifestationContext rdf:type owl:Class ;
-                                rdfs:subClassOf gufo:Situation .
+                                rdfs:subClassOf <http://purl.org/disc-o#ManifestationContext> .
 
 
 ###  http://example.com#CapabilityManifestationInput
@@ -313,7 +285,7 @@ owl:qualifiedCardinality rdf:type owl:AnnotationProperty .
 
 ###  http://example.com#CapabilityOutcome
 :CapabilityOutcome rdf:type owl:Class ;
-                   rdfs:subClassOf gufo:Situation ,
+                   rdfs:subClassOf <http://purl.org/disc-o#DispositionOutcome> ,
                                    [ rdf:type owl:Restriction ;
                                      owl:onProperty [ owl:inverseOf gufo:broughtAbout
                                                     ] ;
@@ -355,12 +327,12 @@ owl:qualifiedCardinality rdf:type owl:AnnotationProperty .
 
 ###  http://example.com#CapabilityType
 :CapabilityType rdf:type owl:Class ;
-                rdfs:subClassOf :DispositionType .
+                rdfs:subClassOf <http://purl.org/disc-o#DispositionType> .
 
 
 ###  http://example.com#CapableObject
 :CapableObject rdf:type owl:Class ;
-               rdfs:subClassOf gufo:Object ,
+               rdfs:subClassOf <http://purl.org/disc-o#InteractiveObject> ,
                                [ rdf:type owl:Restriction ;
                                  owl:onProperty [ owl:inverseOf gufo:inheresIn
                                                 ] ;
@@ -395,7 +367,7 @@ owl:qualifiedCardinality rdf:type owl:AnnotationProperty .
 
 ###  http://example.com#EnablerObject
 :EnablerObject rdf:type owl:Class ;
-               rdfs:subClassOf gufo:Object .
+               rdfs:subClassOf <http://purl.org/disc-o#InteractiveObject> .
 
 
 ###  http://example.com#InteractiveCapability
@@ -538,22 +510,22 @@ owl:qualifiedCardinality rdf:type owl:AnnotationProperty .
                       gufo:MaterialRelationshipType .
 
 
-[ owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger
+[ owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
 ] .
 
-[ owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
+[ owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger
  ] .
 
 #################################################################
 #    Annotations
 #################################################################
 
-:Capability rdfs:label "Capability"@en ;
-             rdfs:comment "A specialized type of disposition with a teleological aspect, tied to the achievement of outcomes or impacts for a capability subject. Capabilities inhere in capable objects and provide value or utility. Example: A software development team has the capability to deliver high-quality software within specified deadlines."@en .
+:Capability rdfs:comment "A specialized type of disposition with a teleological aspect, tied to the achievement of outcomes or impacts for a capability subject. Capabilities inhere in capable objects and provide value or utility. Example: A software development team has the capability to deliver high-quality software within specified deadlines."@en ;
+             rdfs:label "Capability"@en .
 
 
-:CapabilityBoundRole rdfs:label "CapabilityBoundRole"@en ;
-                     rdfs:comment "A role that an object can perform, defined by specific capability types. Objects must possess the required capabilities to specialize in these roles. Example: The \"Team Leader\" role in a development team requires the capability to manage team dynamics and prioritize tasks effectively."@en .
+:CapabilityBoundRole rdfs:comment "A role that an object can perform, defined by specific capability types. Objects must possess the required capabilities to specialize in these roles. Example: The \"Team Leader\" role in a development team requires the capability to manage team dynamics and prioritize tasks effectively."@en ;
+                     rdfs:label "CapabilityBoundRole"@en .
 
 
 :CapabilityLevel rdfs:comment "Represents the evolution or complexity level of a capability over time. Examples include maturity levels or performance degrees. Example: A beginner chef has a basic capability level in cooking, while a Michelin-star chef has an advanced capability level."@en ;
@@ -564,24 +536,24 @@ owl:qualifiedCardinality rdf:type owl:AnnotationProperty .
                          rdfs:label "CapabilityManifestation"@en .
 
 
-:CapabilityManifestationContext rdfs:label "CapabilityManifestationContext"@en ;
-                                rdfs:comment """The specific physical and temporal situation enabling a capability to manifest. It includes necessary conditions and supporting objects.
-Example: The manifestation of an emergency response capability occurs in the context of a natural disaster requiring immediate resource deployment."""@en .
+:CapabilityManifestationContext rdfs:comment """The specific physical and temporal situation enabling a capability to manifest. It includes necessary conditions and supporting objects.
+Example: The manifestation of an emergency response capability occurs in the context of a natural disaster requiring immediate resource deployment."""@en ;
+                                rdfs:label "CapabilityManifestationContext"@en .
 
 
-:CapabilityManifestationInput rdfs:label "CapabilityManifestationInput"@en ;
-                              rdfs:comment """Inputs used during the manifestation of a capability, such as raw materials, energy, or information, which might be consumed or altered.
-Example: Ingredients (e.g., flour, eggs, sugar) are inputs for the manifestation of a baking capability in creating a cake."""@en .
+:CapabilityManifestationInput rdfs:comment """Inputs used during the manifestation of a capability, such as raw materials, energy, or information, which might be consumed or altered.
+Example: Ingredients (e.g., flour, eggs, sugar) are inputs for the manifestation of a baking capability in creating a cake."""@en ;
+                              rdfs:label "CapabilityManifestationInput"@en .
 
 
-:CapabilityManifestationOutput rdfs:label "CapabilityManifestationOutput"@en ;
-                               rdfs:comment """The result of a capability's manifestation, characterized by qualities and dispositions that fulfill the needs of the capability subject.
-Example: A project team’s capability manifestation results in a detailed project report as the output."""@en .
+:CapabilityManifestationOutput rdfs:comment """The result of a capability's manifestation, characterized by qualities and dispositions that fulfill the needs of the capability subject.
+Example: A project team’s capability manifestation results in a detailed project report as the output."""@en ;
+                               rdfs:label "CapabilityManifestationOutput"@en .
 
 
-:CapabilityOutcome rdfs:label "CapabilityOutcome"@en ;
-                   rdfs:comment """A situation resulting from the manifestation of a capability, including its impacts, effects, and generated results. It often aligns with the intentions or desires of the capability subject.
-Example: The outcome of a capability to optimize a supply chain is a 20% reduction in delivery times across regions."""@en .
+:CapabilityOutcome rdfs:comment """A situation resulting from the manifestation of a capability, including its impacts, effects, and generated results. It often aligns with the intentions or desires of the capability subject.
+Example: The outcome of a capability to optimize a supply chain is a 20% reduction in delivery times across regions."""@en ;
+                   rdfs:label "CapabilityOutcome"@en .
 
 
 :CapabilityOutputAspect rdfs:comment """Qualities or dispositions characterizing the outputs generated by the manifestation of a capability, which are critical for satisfying the capability subject.
@@ -589,23 +561,23 @@ Example: The output of a car manufacturing capability includes cars with aspects
                         rdfs:label "CapabilityOutputAspect"@en .
 
 
-:CapabilityPhase rdfs:label "CapabilityPhase"@en ;
-                 rdfs:comment """Represents the developmental stages or complexity levels of a capability, such as those found in maturity models.
-Example: The capability to operate an autonomous vehicle may have phases like begginer, medium, and experienced."""@en .
+:CapabilityPhase rdfs:comment """Represents the developmental stages or complexity levels of a capability, such as those found in maturity models.
+Example: The capability to operate an autonomous vehicle may have phases like begginer, medium, and experienced."""@en ;
+                 rdfs:label "CapabilityPhase"@en .
 
 
-:CapabilityQuality rdfs:label "CapabilityQuality"@en ;
-                   rdfs:comment """Qualities characterizing a capability, such as performance metrics, which are essential for understanding and evaluating the capability.
-Example: The delivery rate of a software development team (measured in story points per sprint) is a quality of its development capability."""@en .
+:CapabilityQuality rdfs:comment """Qualities characterizing a capability, such as performance metrics, which are essential for understanding and evaluating the capability.
+Example: The delivery rate of a software development team (measured in story points per sprint) is a quality of its development capability."""@en ;
+                   rdfs:label "CapabilityQuality"@en .
 
 
 :CapabilitySubject rdfs:comment "The entity (often an agent) that benefits from the capability, with motivations and desires tied to its realization."@en ;
                    rdfs:label "CapabilitySubject"@en .
 
 
-:CapabilityType rdfs:label "CapabilityType"@en ;
-                rdfs:comment """Extends the concept of disposition types, including classifications based on interaction, emergence, and composition relationships.
-Example: In a logistics company, \"Transport Capability\" and \"Warehouse Management Capability\" are types of capabilities relevant to their operations."""@en .
+:CapabilityType rdfs:comment """Extends the concept of disposition types, including classifications based on interaction, emergence, and composition relationships.
+Example: In a logistics company, \"Transport Capability\" and \"Warehouse Management Capability\" are types of capabilities relevant to their operations."""@en ;
+                rdfs:label "CapabilityType"@en .
 
 
 :CapableObject rdfs:comment """Objects possessing capabilities, often subtypes of value objects with inherent utility for a capability subject.
@@ -618,14 +590,14 @@ Example: The capability of an organization to launch a product combines capabili
                    rdfs:label "ComplexCapability"@en .
 
 
-:Disposition rdfs:label "Disposition"@en ;
-             rdfs:comment """General characteristics enabling objects to produce specific behaviors or outcomes under particular circumstances.
-Example: A glass has the disposition to shatter when struck with sufficient force."""@en .
+:Disposition rdfs:comment """General characteristics enabling objects to produce specific behaviors or outcomes under particular circumstances.
+Example: A glass has the disposition to shatter when struck with sufficient force."""@en ;
+             rdfs:label "Disposition2"@en .
 
 
-:DispositionType rdfs:label "DispositionType"@en ;
-                 rdfs:comment """A classification of dispositions, including properties and interrelations that define their behavior in specific contexts.
-Example: \"Fragility\" is a disposition type, applying to objects like glass, ceramics, or eggs."""@en .
+:DispositionType rdfs:comment """A classification of dispositions, including properties and interrelations that define their behavior in specific contexts.
+Example: \"Fragility\" is a disposition type, applying to objects like glass, ceramics, or eggs."""@en ;
+                 rdfs:label "DispositionType2"@en .
 
 
 :EmergentCapability rdfs:comment """A beneficial capability arising from the interaction and combination of other capabilities (dispositions), particularly in complex systems.
@@ -633,9 +605,9 @@ Example: The capability for cross-departmental innovation in an organization eme
                     rdfs:label "EmergentCapability"@en .
 
 
-:EnablerObject rdfs:label "EnablerObject"@en ;
-               rdfs:comment """Objects that support the manifestation of a capability, providing necessary resources or conditions.
-Example: A high-speed internet connection is an enabler object for the capability of remote work."""@en .
+:EnablerObject rdfs:comment """Objects that support the manifestation of a capability, providing necessary resources or conditions.
+Example: A high-speed internet connection is an enabler object for the capability of remote work."""@en ;
+               rdfs:label "EnablerObject"@en .
 
 
 :InteractiveCapability rdfs:comment """Capabilities requiring interaction with other capabilities to manifest or function effectively.
@@ -643,15 +615,15 @@ Example: A city’s public transport system has an interactive capability that r
                        rdfs:label "InteractiveCapability"@en .
 
 
-:ObjectQuality rdfs:label "ObjectQuality"@en ;
-               rdfs:comment """Qualities of objects that serve as the foundation for their associated capabilities and dispositions.
-Example: The durability of a smartphone is an object quality that contributes to its long-term usability."""@en .
+:ObjectQuality rdfs:comment """Qualities of objects that serve as the foundation for their associated capabilities and dispositions.
+Example: The durability of a smartphone is an object quality that contributes to its long-term usability."""@en ;
+               rdfs:label "ObjectQuality2"@en .
 
 
-:ObjectType rdfs:label "ObjectType"@en .
+:ObjectType rdfs:label "ObjectType2"@en .
 
 
-:supportedBy rdfs:label "supported by"@en .
+:supportedBy rdfs:label "supportedBy"@en .
 
 
-###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi
+###  Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi
